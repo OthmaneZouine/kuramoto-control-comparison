@@ -354,7 +354,9 @@ for c = 1:4
         theta_snap = controllers_theta{c}(numFig(k),:).';
         polarplot(theta_snap, ones(N,1), 'o', 'LineWidth', 1.2, 'Color', colors(c,:));
         if k == 1
-            ylabel(controller_names{c},'FontSize',Font_size-4);
+            % Use text annotation instead of ylabel for polar axes
+            text(-0.5, 0, controller_names{c}, 'FontSize', Font_size-4, ...
+                'HorizontalAlignment', 'right', 'VerticalAlignment', 'middle');
         end
         if c == 1
             title(sprintf('t = %.1f s', tgrid(numFig(k))),'FontSize',Font_size-4);
